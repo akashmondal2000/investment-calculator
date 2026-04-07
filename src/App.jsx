@@ -18,7 +18,7 @@ function App() {
     setUserInput((prevUserInput) => {
       return {
         ...prevUserInput,
-        [inputIdentifire]: newValue,
+        [inputIdentifire]: +newValue,
       };
     });
   }
@@ -30,7 +30,7 @@ function App() {
 
       {/* Results */}
 
-      <Results/>
+      <Results input={userInput}/>
      
     </>
     

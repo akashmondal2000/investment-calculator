@@ -1,13 +1,17 @@
 import { calculateInvestmentResults, formatter } from "../util/investment";
 
 const Results = ({ input }) => {
-  const resultData = calculateInvestmentResults(input);
+  const results = [];
+  calculateInvestmentResults(input,results );
+  
+  if( results.length === 0){
+    return <p className="center">Invalid input Data Provided</p>
+  }
   const initialInvestment =
-    resultData[0].valueEndOfYear -
-    resultData[0].interest -
-    resultData[0].annualInvestment;
+    results[0].valueEndOfYear -
+    results[0].interest -
+    results[0].annualInvestment;
 
-  console.log(resultData);
   return (
     <table id="result">
       <thead>
@@ -20,7 +24,7 @@ const Results = ({ input }) => {
         </tr>
       </thead>
       <tbody>
-        {resultData.map((yearData) => {
+        {results.map((yearData) => {
           const totalInterest =
             yearData.valueEndOfYear -
             yearData.annualInvestment * yearData.year -

@@ -12,7 +12,7 @@ function App() {
     duration: 10,
   });
 
-  const inputIsValid = userInput.duration > 0;
+  // const inputIsValid = userInput.duration > 0;
 
   function handleChange(inputIdentifire, newValue) {
     setUserInput((prevUserInput) => {
@@ -29,11 +29,12 @@ function App() {
       <UserInput userInput={userInput} onChange={handleChange} />
 
       {/* Results */}
-      {inputIsValid ? (
+      {/* {inputIsValid ? (
         <Results input={userInput} />
       ) : (
         <p className="center">Please Enter a Duration greather then Zero</p>
-      )}
+      )} */}
+      <Results input={userInput}/>
     </>
   );
 }
